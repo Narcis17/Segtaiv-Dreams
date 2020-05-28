@@ -1,0 +1,10 @@
+#Variable per posar el dia
+$today = (Get-Date -Format dd-MM-yyyy)
+#Copia total + carpeta comprimida, aixo nomes passara quan sigui diumenge
+
+if ((Get-Date).DayOfWekk.value__ -eq 0
+{Compress-Archive .\ -DestinationPath .\Deptecnic\BackupTotal$today.zip`-CompressionLevel Optimal}
+
+#Copia incremental, es fa tots els dies de la setmana meys els diumenges 
+else {ls .\ | Where-Object LastWriteTime -ge (Get-Date).Adddays(-1) | Compress-Archive -DestinationPath .\Deptecnic\BacupInc$today.zip -Update}
+
