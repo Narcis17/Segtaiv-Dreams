@@ -2,7 +2,7 @@
 $today = (Get-Date -Format dd-MM-yyyy)
 #Copia total + carpeta comprimida, aixo nomes passara quan sigui diumenge
 
-if ((Get-Date).DayOfWekk.value__ -eq 0
+if ((Get-Date).DayOfWeek.value__ -eq 0
 {Compress-Archive .\ -DestinationPath .\Deptecnic\BackupTotal$today.zip`-CompressionLevel Optimal}
 
 #Copia incremental, es fa tots els dies de la setmana meys els diumenges 
